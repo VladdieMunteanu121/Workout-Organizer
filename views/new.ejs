@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>New Workout</title>
+    <link rel="stylesheet" type="text/css" href="/css/styles.css">
+    <script>
+        function addExercise() {
+            const exerciseDiv = document.createElement('div');
+            exerciseDiv.innerHTML = `
+                <label for="exercise">Exercise:</label>
+                <input type="text" name="exercise[]" required>
+                <button type="button" onclick="addSet(this)">Add Set</button>
+                <div class="sets"></div>
+            `;
+            document.getElementById('exercises').appendChild(exerciseDiv);
+        }
+
+        function addSet(button) {
+            const setsDiv = button.parentElement.querySelector('.sets');
+            const setDiv = document.createElement('div');
+            setDiv.innerHTML = `
+                <label for="reps">Reps:</label>
+                <input type="number" name="reps[]" required>
+                <button type="button" onclick="removeSet(this)">Remove Set</button>
+            `;
+            setsDiv.appendChild(setDiv);
+        }
+
+        function removeSet(button) {
+            button.parentElement.remove();
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Add New Workout</h1>
+    </header>
+    <main>
+        <form action="/workouts" method="POST">
+            <div id="exercises">
+                <button type="button" onclick="addExercise()">Add Exercise</button>
+            </div>
+            <button type="submit">Add Workout</button>
+        </form>
+    </main>
+</body>
+</html>

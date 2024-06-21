@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Workout Details</title>
+    <link rel="stylesheet" type="text/css" href="/css/styles.css">
+</head>
+<body>
+    <header>
+        <h1>Workout Details</h1>
+    </header>
+    <main>
+        <p><strong>Date:</strong> <%= workout.date.toDateString() %></p>
+        <p><strong>Description:</strong> <%= workout.description %></p>
+        <a href="/" class="button">Back to All Workouts</a>
+
+        <!-- Edit Form -->
+        <form action="/workouts/<%= workout._id %>?_method=PUT" method="POST">
+            <label for="description">Edit Description:</label>
+            <textarea name="description" id="description"><%= workout.description %></textarea>
+            <button type="submit">Update Workout</button>
+        </form>
+
+        <!-- Delete Form -->
+        <form action="/workouts/<%= workout._id %>?_method=DELETE" method="POST">
+            <button type="submit">Delete Workout</button>
+        </form>
+    </main>
+</body>
+</html>

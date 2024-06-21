@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Workout Logger</title>
+    <link rel="stylesheet" type="text/css" href="/css/styles.css">
+</head>
+<body>
+    <header>
+        <h1>Workout Logger</h1>
+    </header>
+    <main>
+        <a href="/workouts/new" class="button">Add New Workout</a>
+        <div class="workout-list">
+            <% for (let i = 0; i < workouts.length; i++) { %>
+                <div class="workout-box">
+                    <p><strong>Date:</strong> <%= workouts[i].date.toDateString() %></p>
+                    <a href="/workouts/<%= workouts[i]._id %>">View Details</a>
+                </div>
+            <% } %>
+        </div>
+    </main>
+</body>
+</html>
