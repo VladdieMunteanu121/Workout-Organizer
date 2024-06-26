@@ -3,6 +3,7 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 const mongoose = require('mongoose');
 const methodOverride = require('method-override');
+require("dotenv").config()
 
 const Workout = require('./models/workout');
 
@@ -11,7 +12,7 @@ app.use(methodOverride('_method'));
 app.use(express.static('public'));
 
 // MongoDB connection
-const mongoURI = 'mongodb://127.0.0.1:27017/workoutLogger';
+const mongoURI = process.env.MONGOURI;
 async function connectToMongo() {
     try {
         await mongoose.connect(mongoURI)
