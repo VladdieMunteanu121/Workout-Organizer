@@ -16,4 +16,5 @@ WIREFRAMES
 
 ![IMG_6875 (1)](https://github.com/VladdieMunteanu121/Workout-Organizer/assets/126908961/cfcfa957-5201-4888-920d-89e6d27df0cc)
 
-HOSTED APP LINK:
+HOSTED APP LINK
+https://workout-organizer.onrender.com/
